@@ -1,4 +1,4 @@
-template<const int N, const int mod, const int g0>
+template<const int N, const int mod, const int g0>// the MAX size of array, mod, a primitive root of mod
 struct cal_NTT {
     int a[N+5], b[N+5], R[N+5], n, m, len, L;
     int quick_pow(int a, int b) {
@@ -9,7 +9,7 @@ struct cal_NTT {
         }
         return ans;
     }
-    void init(int *A, int *B, int lenA, int lenB) {
+    void init(int *A, int *B, int lenA, int lenB) {// A[0..lenA], B[0..lenB]
         n = lenA, m = lenB;
         for (len = 1, L = 0; len <= n+m; len <<= 1) ++L;
         for (int i = 0; i < len; i++) R[i] = (R[i>>1]>>1)|((i&1)<<(L-1));
@@ -36,7 +36,7 @@ struct cal_NTT {
         int inv = quick_pow(n, mod-2);
         for (int i = 0; i < n; i++) A[i] = 1ll*A[i]*inv%mod;
     }
-    void work() {
+    void work() {// calculate A * B
         NTT(a, len, 1), NTT(b, len, 1);
         for (int i = 0; i < len; i++) a[i] = 1ll*a[i]*b[i]%mod;
         NTT(a, len, -1);
