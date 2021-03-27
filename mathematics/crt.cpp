@@ -5,7 +5,7 @@ struct crt {
         T M = 1, ans = 0;
         for (int i = 1; i <= n; i++) M *= m[i];
         for (int i = 1; i <= n; i++)
-            (ans += 1ll*a[i]*(M/m[i])%M*exgcd->inv(M/m[i], m[i])%M) %= M;
+            (ans += (__int128)a[i]*(M/m[i])%M*exgcd->inv(M/m[i], m[i])%M) %= M;
         return ans;
     }
 } ;
