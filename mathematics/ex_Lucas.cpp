@@ -33,7 +33,7 @@ struct exLucas {
         for (T i = n-m; i; i /= pi) k -= i/pi;
         return (__int128)a*inv(b, pk)%pk*inv(c, pk)%pk*quick_pow(pi, k, pk)%pk;
     }
-    T ex_lucas(T n, T m, T p) {
+    T ex_lucas(T n, T m, T p) {// return C(n, m) mod p
         T ans = 0;
         for (T i = 2, x = p; i <= x; i++)
             if (x%i == 0) {

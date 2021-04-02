@@ -1,6 +1,6 @@
 template<typename T>
 struct BSGS {
-    T cal(T a, T b, T c) {
+    T cal(T a, T b, T c) {// compute the min x of a^x = b (mod c), gcd(a, p) = 1
         mp.clear();
         T tim = ceil(sqrt(c)), tmp = b%c;
         for (int i = 0; i <= tim; i++) {

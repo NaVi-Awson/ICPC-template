@@ -1,6 +1,6 @@
 template<typename T>
 struct exBSGS {
-    T cal(T a, T b, T c) {
+    T cal(T a, T b, T c) {// compute the min x of a^x = b (mod c)
         if (b == 1) return 0;
         T cnt = 0, d = 1, t;
         while ((t = __gcd(a, c)) != 1) {
